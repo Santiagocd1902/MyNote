@@ -1,0 +1,219 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ff9fd7, #ff6fb2, #ff92c2);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR INFERIOR O SUPERIOR (según tu diseño) */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.8rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#contenido {
+  flex: 1;
+  padding: 2rem;
+  margin-bottom: 4rem; /* para no tapar el contenido con el nav */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SECCIONES GENERALES */
+.seccion {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* 🌸 MODAL DE NUEVA MATERIA */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 182, 216, 0.25); /* Filtro suave rosado */
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+  color: #fff;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+
+/* ✏️ Input para nueva materia */
+.modal-content input {
+  width: 100%;
+  padding: 0.5em 0 0.5em 0;
+  border: none;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.modal-content input::placeholder {
+  color: #ffffff;
+}
+
+.modal-content input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+/* 🔘 Botones dentro del modal */
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#cancelarBtn {
+  background: rgba(255, 165, 204, 0.8);
+}
+
+#guardarBtn {
+  background: rgba(255, 110, 176, 0.9);
+}
+
+#cancelarBtn:hover {
+  background: rgba(255, 165, 204, 1);
+  transform: scale(1.05);
+}
+
+#guardarBtn:hover {
+  background: rgba(255, 110, 176, 1);
+  transform: scale(1.05);
+}
+
+/* 📘 Materias dentro de la lista */
+.materia {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin: 0.5rem 0;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(255, 105, 180, 0.25);
+}
+
+.materia:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+}
+
+/* Login y Registro */
+.seccion.login, .seccion.registro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.seccion.login input, .seccion.registro input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 1rem;
+  width: 80%;
+  text-align: center;
+}
+
+.seccion.login button, .seccion.registro button {
+  background: #ff6fb2;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seccion.login button:hover, .seccion.registro button:hover {
+  background: #ff479c;
+}
+
+.link {
+  color: #ffe4f0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/* 📱 Pequeños ajustes para móvil */
+@media (max-width: 480px) {
+  .seccion {
+    padding: 1.5rem;
+  }
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
